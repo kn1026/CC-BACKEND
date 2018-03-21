@@ -29,7 +29,7 @@ app.post('/customers', (req, res) => {
         console.log(err)
 
       }
-      req.send(customer)
+      res.send(customer)
     })
 
 });
