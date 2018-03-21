@@ -15,12 +15,23 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 
-
-
 app.post('/customers', (req, res) => {
 
-    console.log(req.body)
+    var email = req.body.email
+    var source = req.body.source
 
+    stripe.customers.create({
+      email: email,
+      source: source,
+    }, function(err, customer) {
+      // asynchronously called
+      if(err != null) {
+
+        console.log(err)
+
+      }
+      res.send(customer)
+    })
 
 });
 
