@@ -16,11 +16,14 @@ app.use(bodyParser.urlencoded ({
   }));
 
 app.post('/customers', (req, res) => {
+
+    console.log(req.body)
+
     var email = req.body.email
     var source = req.body.source
 
-    console.log(email)
-    console.log(source)
+    
+
 
     stripe.customers.create({
       email: email,
