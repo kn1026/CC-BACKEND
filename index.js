@@ -19,6 +19,9 @@ app.post('/customers', (req, res) => {
     var email = req.body.email
     var source = req.body.source
 
+    console.log(email)
+    console.log(source)
+
     stripe.customers.create({
       email: email,
       source: source,
