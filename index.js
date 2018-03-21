@@ -13,4 +13,11 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-  
+  .post('/customers', (req, res) => {
+      var email = req.body.email
+      var source = req.body.source
+
+      console.log(email)
+      console.log(source)
+
+  })
