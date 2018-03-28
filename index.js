@@ -74,4 +74,22 @@ app.post('/card', (req, res) => {
 
 });
 
+app.post('/default_card', (req, res) => {
+
+    var id = req.body.cus_id
+
+    stripe.customers.retrieve( id,
+      function(err, customer) {
+
+        if(err != null) {
+
+          console.log(err)
+
+        }
+        res.send(customer)
+  }
+);
+
+});
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
