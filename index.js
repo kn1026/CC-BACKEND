@@ -18,11 +18,9 @@ app.set('view engine', 'ejs');
 app.post('/customers', (req, res) => {
 
     var email = req.body.email
-    var source = req.body.source
 
     stripe.customers.create({
-      email: email,
-      source: source,
+      email: email
     }, function(err, customer) {
       // asynchronously called
       if(err != null) {
@@ -52,6 +50,27 @@ app.post('/customers_card', (req, res) => {
   });
 
 
+
+});
+
+
+app.post('/card', (req, res) => {
+
+    var id = req.body.cus_id
+    var source = req.body.source
+
+    stripe.customers.createSource(
+      id,
+      { source: source },
+      function(err, card) {
+        if(err != null) {
+
+          console.log(err)
+
+        }
+        res.send(card)
+      }
+);
 
 });
 
