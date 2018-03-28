@@ -95,7 +95,7 @@ app.post('/default_card', (req, res) => {
 app.post('/single_card', (req, res) => {
 
     var Card_Id = req.body.Card_Id
-    var cus_id = req.body.cus_id
+    
 
     stripe.customers.retrieveCard(cus_id, Card_Id,
     function(err, card) {
