@@ -86,7 +86,6 @@ app.post('/default_card', (req, res) => {
           console.log(err)
 
         }
-        console.log(customer.body.default_source)
         res.send(customer)
   }
 );
