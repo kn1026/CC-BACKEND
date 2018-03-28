@@ -114,18 +114,16 @@ app.post('/single_card', (req, res) => {
 
 app.post('/retrieve_token', (req, res) => {
 
-  card: {
-  "number": '4242424242424242',
-  "exp_month": 12,
-  "exp_year": 2019,
-  "cvc": '123'
-  }
+    var number = req.body.number
+    var exp_month = req.body.exp_month
+    var exp_year = req.body.exp_year
+    var cvc = req.body.cvc
 
     stripe.tokens.create({card: {
-    "number": '4242424242424242',
-    "exp_month": 12,
-    "exp_year": 2019,
-    "cvc": '123'
+    "number": number,
+    "exp_month": exp_month,
+    "exp_year": exp_year,
+    "cvc": cvc
   }
 }, function(err, token) {
   if(err != null) {
