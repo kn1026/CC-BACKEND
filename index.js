@@ -95,7 +95,7 @@ app.post('/default_card', (req, res) => {
 app.post('/single_card', (req, res) => {
 
     var Card_Id = req.body.Card_Id
-    
+    var cus_id = req.body.cus_id
 
     stripe.customers.retrieveCard(cus_id, Card_Id,
     function(err, card) {
@@ -109,6 +109,32 @@ app.post('/single_card', (req, res) => {
 
     }
 );
+
+});
+
+app.post('/retrieve_token', (req, res) => {
+
+  card: {
+  "number": '4242424242424242',
+  "exp_month": 12,
+  "exp_year": 2019,
+  "cvc": '123'
+  }
+
+    stripe.tokens.create({card: {
+    "number": '4242424242424242',
+    "exp_month": 12,
+    "exp_year": 2019,
+    "cvc": '123'
+  }
+}, function(err, token) {
+  if(err != null) {
+
+    console.log(err)
+
+  }
+  res.send(token)
+});
 
 });
 
