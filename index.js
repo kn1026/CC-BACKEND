@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 const accountSid = 'AC890d1e64b6af132a97b58edcd84acaee';
 const authToken = 'c9aa2f947339f8f124e19643a955a256';
 const client = require('twilio')(accountSid, authToken);
+const MessageingResponse = require('twilio').twiml.MessageingResponse;
 
 
 app.use(bodyParser.json());
@@ -196,5 +197,24 @@ app.post('/sms_noti', (req, res) => {
 
 });
 
+
+app.post('/sms_noti', (req, res) => {
+
+    const twiml =  new MessageingResponse();
+
+    twiml.message('Your driving is comming, be ready !!!');
+
+
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+
+});
+
+
+http.createServer(app).listen(1337, () => {
+
+    console.log('Express listining on port 1337');
+
+});
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
