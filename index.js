@@ -198,7 +198,7 @@ app.post('/sms_noti', (req, res) => {
 });
 
 
-app.post('/sms_noti', (req, res) => {
+app.post('/sms', (req, res) => {
 
     const twiml =  new MessageingResponse();
 
