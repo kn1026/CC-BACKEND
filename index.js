@@ -185,8 +185,19 @@ app.post('/sms_noti', (req, res) => {
     var phone = req.body.phone
     var body = req.body.body
 
-    console.log(phone)
-    console.log(body)
+    const notificationOpts = {
+      toBinding: JSON.stringify({
+      binding_type: 'sms',
+      address: phone,
+    }),
+      body: body,
+};
+
+    client.notify
+    .services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+    .notifications.create(notificationOpts)
+    .then(notification => console.log(notification.sid))
+    .catch(error => console.log(error));
 
 });
 
