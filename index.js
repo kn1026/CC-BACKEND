@@ -189,7 +189,7 @@ app.post('/sms_noti', (req, res) => {
     client.messages.create({
 
         to: phone,
-        from: 'Campus Connect',
+        from: '+16194190889',
         body: body
 
     })
