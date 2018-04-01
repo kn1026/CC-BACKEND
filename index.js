@@ -185,17 +185,16 @@ app.post('/sms_noti', (req, res) => {
     var phone = req.body.phone
     var body = req.body.body
 
-    const notificationOpts = {
-      toBinding: JSON.stringify({
-      binding_type: 'sms',
+    const bindingOpts = {
+      identity: '00000001', // We recommend using a GUID or other anonymized identifier for Identity.
+      bindingType: 'sms',
       address: phone,
-    }),
       body: body,
 };
 
     client.notify
     .services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    .notifications.create(notificationOpts)
+    .notifications.create(bindingOpts)
     .then(notification => console.log(notification.sid))
     .catch(error => console.log(error));
 
