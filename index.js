@@ -136,4 +136,25 @@ app.post('/retrieve_token', (req, res) => {
 
 });
 
+app.post('/delete_card', (req, res) => {
+
+    var Card_Id = req.body.Card_Id
+    var cus_id = req.body.cus_id
+
+    stripe.customers.deleteCard( cus_id,Card_Id,
+      function(err, confirmation) {
+        // asynchronously called
+        if(err != null) {
+
+          console.log(err)
+
+        }
+        res.send(confirmation)
+
+      }
+);
+
+
+});
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
