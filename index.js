@@ -198,23 +198,4 @@ app.post('/sms_noti', (req, res) => {
 });
 
 
-app.post('/sms', (req, res) => {
-
-    const twiml =  new MessageingResponse();
-
-    twiml.message('Your driving is comming, be ready !!!');
-
-
-    res.writeHead(200, {'Content-Type': 'text/xml'});
-    res.end(twiml.toString());
-
-});
-
-
-http.createServer(app).listen(1337, () => {
-
-    console.log('Express listining on port 1337');
-
-});
-
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
