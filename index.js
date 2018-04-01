@@ -5,6 +5,11 @@ const stripe = require("stripe")("sk_test_ml6mfjJq69CvQYaPlCiwdOAp");
 var app = express();
 const PORT = process.env.PORT || 5000;
 
+
+const accountSid = 'AC890d1e64b6af132a97b58edcd84acaee';
+const authToken = 'c9aa2f947339f8f124e19643a955a256';
+const client = require('twilio')(accountSid, authToken);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
       extended : true
@@ -173,6 +178,16 @@ app.post('/set_default', (req, res) => {
     res.send(customer)
 
   });
+});
+
+app.post('/sms_noti', (req, res) => {
+
+    var phone = req.body.phone
+    var body = req.body.body
+
+    console.log(phone)
+    console.log(body)
+
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
