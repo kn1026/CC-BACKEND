@@ -141,9 +141,6 @@ app.post('/delete_card', (req, res) => {
     var cus_id = req.body.cus_id
     var Card_Id = req.body.Card_Id
 
-    console.log(cus_id)
-    console.log(Card_Id)
-
     stripe.customers.deleteCard(cus_id,Card_Id,
       function(err, confirmation) {
         // asynchronously called
@@ -156,6 +153,26 @@ app.post('/delete_card', (req, res) => {
 
       }
     );
+});
+
+app.post('/set_default', (req, res) => {
+
+    var cus_id = req.body.cus_id
+    var Card_Id = req.body.Card_Id
+
+
+    stripe.customers.update(cus_id, {
+        default_source: Card_Id
+  }, function(err, customer) {
+
+    if(err != null) {
+
+      console.log(err)
+
+    }
+    res.send(customer)
+
+  });
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
