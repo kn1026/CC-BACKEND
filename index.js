@@ -138,10 +138,13 @@ app.post('/retrieve_token', (req, res) => {
 
 app.post('/delete_card', (req, res) => {
 
-    var Card_Id = req.body.Card_Id
     var cus_id = req.body.cus_id
+    var Card_Id = req.body.Card_Id
 
-    stripe.customers.deleteCard( cus_id,Card_Id,
+    console.log(cus_id)
+    console.log(Card_Id)
+
+    stripe.customers.deleteCard(cus_id,Card_Id,
       function(err, confirmation) {
         // asynchronously called
         if(err != null) {
@@ -152,9 +155,7 @@ app.post('/delete_card', (req, res) => {
         res.send(confirmation)
 
       }
-);
-
-
+    );
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
