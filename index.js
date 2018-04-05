@@ -189,6 +189,15 @@ app.post('/pre_authorization', (req, res) => {
     var captured = req.body.captured
     var description = req.body.description
 
+
+
+    console.log(cus_id)
+    console.log(amount)
+    console.log(source)
+    console.log(captured)
+    console.log(description)
+
+
     stripe.charges.create({
 
       customer: cus_id,
