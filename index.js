@@ -186,11 +186,29 @@ app.post('/pre_authorization', (req, res) => {
 
     var cus_id = req.body.cus_id
     var amount = req.body.amount,
-    var currency: "usd",
     var source: req.body.source,
     var captured: req.body.captured,
     var description: req.body.description
 
+    stripe.charges.create({
+
+      amount: amount,
+      currency: "usd",
+      source: source,
+      description: description,
+      captured: captured,
+
+
+    }, function(err, charge) {
+
+      if(err != null) {
+
+        console.log(err)
+
+      }
+      res.send(charge)
+
+  });
 
 });
 
