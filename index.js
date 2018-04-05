@@ -181,6 +181,39 @@ app.post('/set_default', (req, res) => {
   });
 });
 
+
+app.post('/pre_authorization', (req, res) => {
+
+
+    var cus_id = req.body.cus_id
+    var amount = req.body.amount,
+    var currency: "usd",
+    var source: req.body.source,
+    var captured: req.body.captured,
+    var description: req.body.description
+
+    stripe.charges.create({
+
+      amount: amount,
+      currency: currency,
+      source: source, // obtained with Stripe.js
+      description: description,
+      captured: captured,
+
+
+    }, function(err, charge) {
+
+      if(err != null) {
+
+        console.log(err)
+
+      }
+      res.send(charge)
+
+  });
+
+});
+
 app.post('/sms_noti', (req, res) => {
 
     var phone = req.body.phone
@@ -209,6 +242,10 @@ app.post('/sms', (req, res) => {
 http.createServer(app).listen(1337, () => {
   console.log('Express server listening on port 1337');
 });
+
+
+
+
 
 
 
