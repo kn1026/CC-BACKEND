@@ -205,7 +205,7 @@ app.post('/pre_authorization', (req, res) => {
       amount: amount,
       currency: "usd",
       description: description,
-      captured: captured,
+      capture: captured,
 
 
     }, function(err, charge) {
