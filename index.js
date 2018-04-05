@@ -189,6 +189,7 @@ app.post('/pre_authorization', (req, res) => {
     var captured = req.body.captured
     var description = req.body.description
     var receipt_email = req.body.receipt_email
+    var name = req.body.name
 
 
     console.log(cus_id)
@@ -207,6 +208,7 @@ app.post('/pre_authorization', (req, res) => {
       description: description,
       capture: false,
       receipt_email: receipt_email,
+      name: name,
 
 
     }, function(err, charge) {
