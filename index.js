@@ -181,7 +181,18 @@ app.post('/set_default', (req, res) => {
   });
 });
 
+app.post('/pre_authorization', (req, res) => {
 
+
+    var cus_id = req.body.cus_id
+    var amount = req.body.amount,
+    var currency: "usd",
+    var source: req.body.source,
+    var captured: req.body.captured,
+    var description: req.body.description
+
+
+});
 
 
 app.post('/sms_noti', (req, res) => {
