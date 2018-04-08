@@ -218,6 +218,26 @@ app.post('/pre_authorization', (req, res) => {
 });
 
 
+app.post('/Capture_payment', (req, res) => {
+
+    var charge_id = req.body.chargedID
+
+    stripe.charges.capture(charge_id, function(err, charge) {
+
+      if(err != null) {
+
+        console.log(err)
+
+      }
+      
+      res.send(charge)
+
+    });
+
+
+
+});
+
 app.post('/sms_noti', (req, res) => {
 
     var phone = req.body.phone
