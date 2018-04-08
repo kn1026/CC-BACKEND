@@ -221,6 +221,7 @@ app.post('/pre_authorization', (req, res) => {
 app.post('/Capture_payment', (req, res) => {
 
     var charge_id = req.body.chargedID
+    console.log(charge_id)
 
     stripe.charges.capture(charge_id, function(err, charge) {
 
@@ -229,7 +230,7 @@ app.post('/Capture_payment', (req, res) => {
         console.log(err)
 
       }
-      
+
       res.send(charge)
 
     });
