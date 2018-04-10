@@ -194,7 +194,7 @@ app.post('/pre_authorization', (req, res) => {
 
     stripe.charges.create({
 
-      customer: Cus_id,
+      customer: cus_id,
       card: source,
       amount: amount,
       currency: "usd",
