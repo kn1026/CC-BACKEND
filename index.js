@@ -223,7 +223,7 @@ app.post('/pre_authorization_apple_pay', (req, res) => {
     var receipt_email = req.body.receipt_email
     var amount = req.body.amount
     var description = req.body.description
-
+    var cus_id = req.body.cus_id
 
     stripe.charges.create({
 
