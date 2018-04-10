@@ -226,7 +226,7 @@ app.post('/pre_authorization_apple_pay', (req, res) => {
 
     stripe.charges.create({
 
-      customer: cus_id,
+      //customer: cus_id,
       source: source,
       amount: amount,
       currency: "usd",
