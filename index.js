@@ -59,7 +59,7 @@ app.post('/customers_card', (req, res) => {
 
 });
 
-app.post('/customers_card', (req, res) => {
+app.post('/customers_email_update', (req, res) => {
 
     var id = req.body.cus_id
     var email = req.body.email
