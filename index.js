@@ -59,26 +59,27 @@ app.post('/customers_card', (req, res) => {
 
 });
 
-app.post('/customers_email_update', (req, res) => {
+app.post('/customers_card', (req, res) => {
 
     var id = req.body.cus_id
     var email = req.body.email
 
+
+
     stripe.customers.update(id, {
+        email: email
+      }, function(err, customer) {
 
-      email: email
+        if(err != null) {
 
-    }, function(err, customer) {
+          console.log(err)
 
-      if(err != null) {
-
-        console.log(err)
-
-      }
-      res.send(customer)
-
-
+        }
+        res.send(customer)
   });
+
+
+});
 
 
 app.post('/card', (req, res) => {
