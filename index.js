@@ -169,7 +169,7 @@ app.post('/retrieve_bank_token', (req, res) => {
     var account_holder_name = req.body.account_holder_name
     var routing_number = req.body.routing_number
     var account_number = req.body.account_number
-    var cvc = req.body.cvc
+    
 
     stripe.tokens.create({
     bank_account: {
