@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const stripe = require("stripe")("sk_test_ml6mfjJq69CvQYaPlCiwdOAp");
+const stripe = require("stripe")("sk_live_MOC1tbrlvBZENX8WMEXiLhla");
 var app = express();
 const PORT = process.env.PORT || 5000;
 
