@@ -217,7 +217,7 @@ app.post('/delete_card', (req, res) => {
 
 app.post('/refund', (req, res) => {
 
-    var refund_id = req.body.refund_key,
+    var refund_id = req.body.refund_key
     var receipt_email = req.body.receipt_email
 
     stripe.refunds.create({
@@ -264,6 +264,7 @@ app.post('/pre_authorization', (req, res) => {
     var captured = req.body.captured
     var description = req.body.description
     var receipt_email = req.body.receipt_email
+
 
 
     stripe.charges.create({
