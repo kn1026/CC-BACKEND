@@ -217,11 +217,13 @@ app.post('/delete_card', (req, res) => {
 
 app.post('/refund', (req, res) => {
 
-    var refund_id = req.body.refund_key
+    var refund_id = req.body.refund_key,
+    var receipt_email = req.body.receipt_email
 
     stripe.refunds.create({
 
-        charge: refund_id
+        charge: refund_id,
+        receipt_email: receipt_email,
 
       }, function(err, refund) {
           if(err != null) {
@@ -327,9 +329,18 @@ app.post('/pre_authorization_apple_pay', (req, res) => {
 app.post('/Capture_payment', (req, res) => {
 
     var charge_id = req.body.chargedID
-    console.log(charge_id)
+    var receipt_email = req.body.receipt_email
 
-    stripe.charges.capture(charge_id, function(err, charge) {
+
+    stripe.charges.capture({
+
+
+      charge: charge_id,
+      receipt_email: receipt_email,
+
+
+
+    }, function(err, charge) {
 
       if(err != null) {
 
@@ -339,7 +350,7 @@ app.post('/Capture_payment', (req, res) => {
 
       res.send(charge)
 
-    });
+  });
 
 
 
