@@ -218,12 +218,12 @@ app.post('/delete_card', (req, res) => {
 app.post('/refund', (req, res) => {
 
     var refund_id = req.body.refund_key
-    var receipt_email = req.body.receipt_email
+    var reason = req.body.reason
 
     stripe.refunds.create({
 
         charge: refund_id,
-        receipt_email: receipt_email,
+        reason: reason,
 
       }, function(err, refund) {
           if(err != null) {
