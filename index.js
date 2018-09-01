@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const stripe = require("stripe")("sk_test_ml6mfjJq69CvQYaPlCiwdOAp");
-const Checkr = require('checkr-api')('77a2877369d9ebaf2753ad7c93ec585926ad8426');
+const stripe = require("stripe")("sk_live_MOC1tbrlvBZENX8WMEXiLhla");
 var app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -141,6 +140,8 @@ app.post('/single_card', (req, res) => {
 
 });
 
+
+
 app.post('/retrieve_token', (req, res) => {
 
     var number = req.body.number
@@ -211,6 +212,26 @@ app.post('/delete_card', (req, res) => {
 
       }
     );
+});
+
+
+app.post('/refund', (req, res) => {
+
+    var refund_id = req.body.refund_key
+
+    stripe.refunds.create({
+
+        charge: refund_id
+
+      }, function(err, refund) {
+          if(err != null) {
+
+            console.log(err)
+
+          }
+            res.send(refund)
+      });
+
 });
 
 app.post('/set_default', (req, res) => {
