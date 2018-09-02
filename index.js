@@ -11,6 +11,7 @@ const client = require('twilio')(accountSid, authToken);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
 const https = require('https');
+const request = require('request');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
@@ -261,25 +262,39 @@ app.post('/External_Account', (req, res) => {
 app.post('/redirect', (req, res) => {
 
     authorization_code = req.body.authorization_code
+    console.log(authorization_code)
 
-    var request = require('request');
 
-    var dataString = 'client_secret=sk_live_MOC1tbrlvBZENX8WMEXiLhla&code={authorization_code}&grant_type=authorization_code';
+    request.post({
 
-    var options = {
       url: 'https://connect.stripe.com/oauth/token',
-      method: 'POST',
-      body: dataString
-    };
+      form: { code: authorization_code, grant_type: "authorization_code", client_secret: "sk_live_MOC1tbrlvBZENX8WMEXiLhla" }
 
-    request(options, callback);
+    }, function(error, response, body){
+
+      if (!error && response.statusCode == 200) {
+
+          res.send(body);
+
+      } else {
+
+          console.log(error)
+
+      }
+
+
+  });
 
 
 });
 
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
-        console.log(body);
+        res.send(body);
+    } else {
+
+        console.log(error)
+
     }
 }
 
