@@ -257,11 +257,13 @@ app.post('/External_Account', (req, res) => {
 
 });
 
-app.post('/redirect', (req, res) => {
+app.get('/redirect', (req, res) => {
 
     console.log(req.body.code)
 
 });
+
+
 
 app.post('/set_default', (req, res) => {
 
