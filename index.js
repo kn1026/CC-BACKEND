@@ -257,6 +257,12 @@ app.post('/External_Account', (req, res) => {
 
 });
 
+app.post('/redirect', (req, res) => {
+
+    console.log(req.body)
+
+});
+
 app.post('/set_default', (req, res) => {
 
     var cus_id = req.body.cus_id
