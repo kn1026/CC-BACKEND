@@ -262,25 +262,28 @@ app.post('/redirect', (req, res) => {
 
     authorization_code = req.body.authorization_code
 
-    stripe.accounts.create({
-      type: 'express',
-      country: 'US',
-      client_secret: "sk_live_MOC1tbrlvBZENX8WMEXiLhla",
-      code: "AUTHORIZATION_CODE",
-      grant_type: authorization_code
+    var request = require('request');
 
+    var dataString = 'client_secret=sk_live_MOC1tbrlvBZENX8WMEXiLhla&code={authorization_code}&grant_type=authorization_code';
 
-    }, function(err, account) {
-      if(err != null) {
+    var options = {
+      url: 'https://connect.stripe.com/oauth/token',
+      method: 'POST',
+      body: dataString
+    };
 
-        console.log(err)
-
-      }
-        res.send(account)
-  });
+    request(options, callback);
 
 
 });
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
+
+
 
 
 
