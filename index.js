@@ -259,6 +259,30 @@ app.post('/External_Account', (req, res) => {
 
 });
 
+
+app.post('/retrive_connect', (req, res) => {
+
+    var account = req.body.account
+
+    stripe.accounts.retrieve(
+      account, function(err, account) {
+
+        if (!error) {
+
+            res.send(account);
+
+        } else {
+
+            console.log(err)
+        }
+
+
+      }
+);
+
+});
+
+
 app.post('/redirect', (req, res) => {
 
     authorization_code = req.body.authorization_code
