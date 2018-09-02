@@ -236,6 +236,25 @@ app.post('/refund', (req, res) => {
 
 });
 
+app.post('/External_Account', (req, res) => {
+
+    var email = req.body.email
+
+    stripe.accounts.create({
+      type: 'custom',
+      country: 'US',
+      email: email
+    }, function(err, account) {
+      if(err != null) {
+
+        console.log(err)
+
+      }
+        res.send(account)
+  });
+
+});
+
 app.post('/set_default', (req, res) => {
 
     var cus_id = req.body.cus_id
