@@ -265,9 +265,9 @@ app.post('/redirect', (req, res) => {
     stripe.accounts.create({
       type: 'express',
       country: 'US',
-      client_secret = "sk_live_MOC1tbrlvBZENX8WMEXiLhla",
-      code= "AUTHORIZATION_CODE",
-      grant_type = authorization_code
+      client_secret: "sk_live_MOC1tbrlvBZENX8WMEXiLhla",
+      code: "AUTHORIZATION_CODE",
+      grant_type: authorization_code
 
 
     }, function(err, account) {
