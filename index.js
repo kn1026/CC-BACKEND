@@ -278,10 +278,31 @@ app.post('/retrieve_connect', (req, res) => {
 
 
       }
-);
+    );
 
 });
 
+
+app.post('/login_links', (req, res) => {
+
+    var account = req.body.account
+
+    stripe.accounts.createLoginLink(
+      account,function(err, link) {
+
+        if (!err) {
+
+            res.send(link);
+
+        } else {
+
+            console.log(err)
+        }
+
+  }
+);
+
+});
 
 app.post('/redirect', (req, res) => {
 
