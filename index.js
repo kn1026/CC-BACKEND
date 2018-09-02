@@ -260,14 +260,14 @@ app.post('/External_Account', (req, res) => {
 });
 
 
-app.post('/retrive_connect', (req, res) => {
+app.post('/retrieve_connect', (req, res) => {
 
     var account = req.body.account
 
     stripe.accounts.retrieve(
       account, function(err, account) {
 
-        if (!error) {
+        if (!err) {
 
             res.send(account);
 
