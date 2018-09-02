@@ -10,6 +10,7 @@ const authToken = 'c9aa2f947339f8f124e19643a955a256';
 const client = require('twilio')(accountSid, authToken);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
+const https = require('https');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
@@ -259,7 +260,12 @@ app.post('/External_Account', (req, res) => {
 
 app.post('/redirect', (req, res) => {
 
-    console.log(res.body)
+    var link =  req
+    https.get(link, (res) => {
+      console.log(res.body);
+  }).on('error', (e) => {
+    console.error(e);
+  });
 
 });
 
