@@ -257,9 +257,9 @@ app.post('/External_Account', (req, res) => {
 
 });
 
-app.get('/redirect', (req, res) => {
+app.post('/redirect', (req, res) => {
 
-    console.log(req.body.code)
+    console.log(res.body)
 
 });
 
