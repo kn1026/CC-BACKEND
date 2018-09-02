@@ -241,7 +241,7 @@ app.post('/External_Account', (req, res) => {
     var email = req.body.email
 
     stripe.accounts.create({
-      type: 'express',
+      type: 'custom',
       country: 'US',
       email: email,
       business_name: "Campus Connect Driver",
