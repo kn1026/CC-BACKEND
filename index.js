@@ -225,7 +225,6 @@ app.post('/refund', (req, res) => {
     stripe.refunds.create({
 
         charge: refund_id,
-        reason: reason,
 
       }, function(err, refund) {
           if(err != null) {
