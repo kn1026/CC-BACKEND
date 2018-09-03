@@ -470,14 +470,8 @@ app.post('/Capture_payment', (req, res) => {
     var receipt_email = req.body.receipt_email
 
 
-    stripe.charges.capture({
+    stripe.charges.capture(charge_id, function(err, charge) {
 
-
-      charge: charge_id
-
-
-
-    }, function(err, charge) {
 
       if(err != null) {
 
@@ -487,7 +481,10 @@ app.post('/Capture_payment', (req, res) => {
 
       res.send(charge)
 
-  });
+
+    });
+
+
 
 
 
