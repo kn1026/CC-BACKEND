@@ -311,7 +311,7 @@ app.post('/Transfer_payment', (req, res) => {
 
     stripe.transfers.create({
 
-          amount: 400,
+          amount: 4,
           currency: "usd",
           destination: account,
 
