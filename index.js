@@ -467,7 +467,6 @@ app.post('/pre_authorization_apple_pay', (req, res) => {
 app.post('/Capture_payment', (req, res) => {
 
     var charge_id = req.body.chargedID
-    var receipt_email = req.body.receipt_email
 
 
     stripe.charges.capture(charge_id, function(err, charge) {
