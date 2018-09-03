@@ -304,6 +304,32 @@ app.post('/login_links', (req, res) => {
 
 });
 
+app.post('/Transfer_payment', (req, res) => {
+
+    var price = req.body.price
+    var account = req.body.account
+
+    stripe.transfers.create({
+
+          amount: price,
+          currency: "usd",
+          destination: account,
+
+        }, function(err, transfer) {
+
+          if (!err) {
+
+              res.send(transfer);
+
+          } else {
+
+              console.log(err)
+          }
+
+        });
+
+});
+
 app.post('/redirect', (req, res) => {
 
     authorization_code = req.body.authorization_code
@@ -447,8 +473,7 @@ app.post('/Capture_payment', (req, res) => {
     stripe.charges.capture({
 
 
-      charge: charge_id,
-      receipt_email: receipt_email,
+      charge: charge_id
 
 
 
