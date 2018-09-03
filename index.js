@@ -220,7 +220,6 @@ app.post('/delete_card', (req, res) => {
 app.post('/refund', (req, res) => {
 
     var refund_id = req.body.refund_key
-    var reason = req.body.reason
 
     stripe.refunds.create({
 
@@ -310,7 +309,7 @@ app.post('/Transfer_payment', (req, res) => {
 
     stripe.transfers.create({
 
-          amount: 4,
+          amount: price,
           currency: "usd",
           destination: account,
 
