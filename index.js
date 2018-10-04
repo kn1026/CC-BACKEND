@@ -366,13 +366,13 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
 
   var payload = {
-      first_name = req.body.first_name
-      no_middle_name = req.body.no_middle_name
-      last_name = req.body.last_name
-      email = req.body.email
-      phone = req.body.phone
-      zipcode = req.body.zipcode
-      ssn = req.body.ssn
+      first_name = req.body.first_name,
+      no_middle_name = req.body.no_middle_name,
+      last_name = req.body.last_name,
+      email = req.body.email,
+      phone = req.body.phone,
+      zipcode = req.body.zipcode,
+      ssn = req.body.ssn,
       driver_license_number = req.body.driver_license_number
     };
 
