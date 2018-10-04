@@ -388,10 +388,6 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
     API_KEY = req.body.YOUR_TEST_API_KEY
 
-
-
-    console.log(API_KEY, first_name, no_middle_name, last_name, email, phone, zipcode, ssn, driver_license_number)
-
     var options = {
     url: 'https://api.checkr.com/v1/candidates',
     method: 'POST',
