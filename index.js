@@ -1,4 +1,4 @@
-export checkr from "node-checkr"
+
 const express = require('express');
 
 const path = require('path');
@@ -15,7 +15,7 @@ const http = require('http');
 const https = require('https');
 const request = require('request');
 //import checkr from ;
-const Checkr = new checkr("9fff2ef9b7167479110102a099c2d4175d36f775");
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
@@ -364,37 +364,44 @@ app.post('/redirect', (req, res) => {
 
 app.post('/checkRCreateCandidate', (req, res) => {
 
+
+  var payload = {
+      first_name = req.body.first_name
+      no_middle_name = req.body.no_middle_name
+      last_name = req.body.last_name
+      email = req.body.email
+      phone = req.body.phone
+      zipcode = req.body.zipcode
+      ssn = req.body.ssn
+      driver_license_number = req.body.driver_license_number
+    };
+
     API_KEY = req.body.YOUR_TEST_API_KEY
-    first_name = req.body.first_name
-    no_middle_name = req.body.no_middle_name
-    last_name = req.body.last_name
-    email = req.body.email
-    phone = req.body.phone
-    zipcode = req.body.zipcode
-    ssn = req.body.ssn
-    driver_license_number = req.body.driver_license_number
 
 
     console.log(API_KEY, first_name, no_middle_name, last_name, email, phone, zipcode, ssn, driver_license_number)
 
+    var options = {
+    url: 'https://api.checkr.com/v1/candidates',
+    method: 'POST',
+    body: dataString,
+    auth: {
+        'user': API_KEY,
+        'pass': ''
+    }
 
-    checkr.Candidates
-    .create({
-      first_name: first_name,
-      no_middle_name: no_middle_name,
-      last_name: last_name,
-      email: email,
-      phone: phone,
-      zipcode: zipcode,
-      ssn: ssn,
-      driver_license_number: driver_license_number,
 
-    })
-    .then(candidate => console.log(candidate))
-    .catch(err => console.log(err));
+    request(options, callback);
+};
 
 
 });
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
 
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
