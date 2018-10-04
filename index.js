@@ -386,15 +386,12 @@ app.post('/checkRCreateCandidate', (req, res) => {
       driver_license_number: req.body.driver_license_number
     };
 
-    API_KEY = req.body.YOUR_TEST_API_KEY
-
     var options = {
     url: 'https://api.checkr.com/v1/candidates',
     method: 'POST',
     body: dataString,
     auth: {
-        'user': API_KEY,
-        'pass': ''
+        'key': req.body.YOUR_TEST_API_KEY,
     }
 
   };
