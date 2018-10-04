@@ -81,7 +81,7 @@ const Checkr = {
     },
 
     validate: function (candidateData) {
-      var requiredKeys = ['first_name', 'last_name', 'dob', 'ssn', 'email', 'phone'];
+      var requiredKeys = ['first_name', 'last_name', 'ssn', 'email', 'phone'];
       var errors = [];
 
       for (var i = 0; i < requiredKeys.length; i++) {
