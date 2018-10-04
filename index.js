@@ -385,13 +385,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
     };
 
     var options = {
-    url: 'https://api.checkr.com/js/candidates',
+    url: 'https://api.checkr.com/v1/candidates/' + req.body.YOUR_TEST_API_KEY,
     method: 'POST',
-    body: payload,
-    auth: {
-        'user': req.body.YOUR_TEST_API_KEY,
-        'pass': ''
-    }
+    body: payload
 
   };
 
