@@ -15,6 +15,7 @@ const https = require('https');
 const request = require('request');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var Checkr = new XMLHttpRequest();
+const btoa = function(str){ return Buffer.from(str).toString('base64'); }
 
 Checkr = {
   rootUrl: 'https://api.checkr.com',
