@@ -13,9 +13,9 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
 const https = require('https');
 const request = require('request');
-var xhr = new XMLHttpRequest();
+const Checkr = require("xmlhttprequest").XMLHttpRequest;
 
-const Checkr = {
+Checkr = {
   rootUrl: 'https://api.checkr.com',
   timeout: 30000,
   publishableKey: null,
@@ -27,7 +27,7 @@ const Checkr = {
     var xhr = new XMLHttpRequest();
     var url = Checkr.rootUrl + path;
     xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Content-Type', 'applicsation/json');
     xhr.setRequestHeader('X-User-Agent', 'Checkr.2.0.0.js');
     xhr.setRequestHeader('Authorization', 'Basic ' + btoa(Checkr.publishableKey));
     xhr.onreadystatechange = function () {
