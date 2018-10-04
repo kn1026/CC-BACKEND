@@ -362,6 +362,16 @@ app.post('/redirect', (req, res) => {
 });
 
 
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        res.send(body);
+    } else {
+
+        console.log(error)
+
+    }
+}
+
 app.post('/checkRCreateCandidate', (req, res) => {
 
 
@@ -398,21 +408,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
 });
 
-function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body);
-    }
-}
 
-function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        res.send(body);
-    } else {
 
-        console.log(error)
 
-    }
-}
 
 
 
