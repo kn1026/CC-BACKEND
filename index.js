@@ -13,7 +13,7 @@ const client = require('twilio')(accountSid, authToken);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
 const https = require('https');
-const request = require('request');
+ request = require('request');
 //import checkr from ;
 
 
@@ -403,7 +403,6 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
 
     request(options, callback);
-};
 
 
 });
