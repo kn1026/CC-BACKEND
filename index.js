@@ -451,13 +451,13 @@ app.post('/checkRCreateCandidate', (req, res) => {
   const key = req.body.YOUR_TEST_API_KEY
   Checkr.setPublishableKey(key);
   var payload = {
-      first_name: req.body.first_name.val(),
-      middle_name: req.body.middle_name.val(),
-      last_name: req.body.last_name.val(),
-      email: req.body.email.val(),
-      phone: req.body.phone.val(),
-      zipcode: req.body.zipcode.val(),
-      ssn: req.body.ssn.val(),
+      first_name: req.body.first_name,
+      middle_name: req.body.middle_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      phone: req.body.phone,
+      zipcode: req.body.zipcode,
+      ssn: req.body.ssn,
       driver_license_number: req.body.driver_license_number
     };
 
