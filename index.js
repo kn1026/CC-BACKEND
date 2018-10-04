@@ -1,4 +1,4 @@
-import checkr from "node-checkr"
+export checkr from "node-checkr"
 const express = require('express');
 
 const path = require('path');
