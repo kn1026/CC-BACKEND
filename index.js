@@ -385,11 +385,15 @@ app.post('/checkRCreateCandidate', (req, res) => {
     };
 
     var options = {
-    url: 'https://api.checkr.com/v1/candidates',
-    timeout: 30000,
-    method: 'POST',
-    publishableKey: req.body.YOUR_TEST_API_KEY,
-    body: payload
+        url: 'https://api.checkr.com/v1/candidates',
+        timeout: 30000,
+        method: 'POST',
+        body: payload,
+        headers: {
+          'Content-Type', 'application/json',
+          'X-User-Agent', 'Checkr.2.0.0.js',
+          'Authorization', 'Basic ' + btoa(req.body.YOUR_TEST_API_KEY)
+        }
 
   };
 
