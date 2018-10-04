@@ -81,7 +81,7 @@ const Checkr = {
     },
 
     validate: function (candidateData) {
-      var requiredKeys = ['first_name', 'last_name', 'ssn', 'email', 'phone'];
+      var requiredKeys = ['first_name', 'last_name','dob', 'ssn', 'email', 'phone'];
       var errors = [];
 
       for (var i = 0; i < requiredKeys.length; i++) {
@@ -115,7 +115,7 @@ const Checkr = {
 
     create: function (data, callback) {
       if (!Checkr.publishableKey) {
-        throw new Error('No Publishable Key set. Use Checkr.setPublishableKey("YOUR_KEY_HERE").')
+        throw new Error('No Publishable Key set.')
       }
 
       if (!data) {
@@ -456,6 +456,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
       last_name: req.body.last_name,
       email: req.body.email,
       phone: req.body.phone,
+      dob: "02-12-1990",
       zipcode: req.body.zipcode,
       ssn: req.body.ssn,
       driver_license_number: req.body.driver_license_number
