@@ -1,9 +1,8 @@
-import checkr from 'node-checkr';
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const stripe = require("stripe")("sk_live_MOC1tbrlvBZENX8WMEXiLhla");
-const Checkr = new checkr("9fff2ef9b7167479110102a099c2d4175d36f775");
+const Checkr = requie checkr("9fff2ef9b7167479110102a099c2d4175d36f775");
 var app = express();
 const PORT = process.env.PORT || 5000;
 
