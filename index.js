@@ -1,7 +1,9 @@
+import checkr from 'node-checkr';
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const stripe = require("stripe")("sk_live_MOC1tbrlvBZENX8WMEXiLhla");
+const Checkr = new checkr("9fff2ef9b7167479110102a099c2d4175d36f775");
 var app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -374,26 +376,20 @@ app.post('/checkRCreateCandidate', (req, res) => {
     console.log(API_KEY, first_name, no_middle_name, last_name, email, phone, zipcode, ssn, driver_license_number)
 
 
-    request.post({
+    checkr.Candidates
+    .create({
+      first_name: first_name,
+      no_middle_name: no_middle_name,
+      last_name: last_name,
+      email: email,
+      phone: phone,
+      zipcode: zipcode,
+      ssn: ssn,
+      driver_license_number: driver_license_number,
 
-      url: 'https://api.checkr.com/v1/candidates',
-      form: { YOUR_TEST_API_KEY: API_KEY, first_name: first_name, no_middle_name: no_middle_name, last_name: last_name, email: email, phone: phone, zipcode: zipcode, ssn: ssn, driver_license_number: driver_license_number }
-
-    }, function(error, response, body){
-
-      if (!error && response.statusCode == 200) {
-
-          res.send(body);
-
-      } else {
-
-          console.log("Error")
-          console.log(error)
-
-      }
-
-
-  });
+    })
+    .then(candidate => console.log(candidate))
+    .catch(err => console.log(err));
 
 
 });
