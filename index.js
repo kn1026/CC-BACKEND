@@ -13,7 +13,7 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
 const https = require('https');
 const request = require('request');
-const xhr = new XMLHttpRequest();
+var xhr = new XMLHttpRequest();
 
 const Checkr = {
   rootUrl: 'https://api.checkr.com',
