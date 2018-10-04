@@ -373,7 +373,6 @@ function callback(error, response, body) {
 
 app.post('/checkRCreateCandidate', (req, res) => {
 
-
   var payload = {
       first_name: req.body.first_name,
       middle_name: req.body.middle_name,
@@ -388,9 +387,10 @@ app.post('/checkRCreateCandidate', (req, res) => {
     var options = {
     url: 'https://api.checkr.com/v1/candidates',
     method: 'POST',
-    body: dataString,
+    body: payload,
     auth: {
-        'key': req.body.YOUR_TEST_API_KEY,
+        'user': 'req.body.YOUR_TEST_API_KEY',
+        'pass': ''
     }
 
   };
