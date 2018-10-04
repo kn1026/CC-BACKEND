@@ -378,10 +378,10 @@ app.post('/checkRCreateCandidate', (req, res) => {
       middle_name: req.body.middle_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      //phone: req.body.phone,
-      //zipcode: req.body.zipcode,
-      //ssn: req.body.ssn,
-      //driver_license_number: req.body.driver_license_number
+      phone: req.body.phone,
+      zipcode: req.body.zipcode,
+      ssn: req.body.ssn,
+      driver_license_number: req.body.driver_license_number
     };
 
     var options = {
@@ -389,7 +389,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
     method: 'POST',
     body: payload,
     auth: {
-        'user': 'req.body.YOUR_TEST_API_KEY',
+        'user': req.body.YOUR_TEST_API_KEY,
         'pass': ''
     }
 
