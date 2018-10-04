@@ -13,7 +13,6 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
 const https = require('https');
 const request = require('request');
-//import checkr from ;
 
 
 app.use(bodyParser.json());
@@ -171,34 +170,6 @@ app.post('/retrieve_token', (req, res) => {
 
 });
 
-app.post('/retrieve_bank_token', (req, res) => {
-
-    var account_holder_name = req.body.account_holder_name
-    var routing_number = req.body.routing_number
-    var account_number = req.body.account_number
-
-
-    stripe.tokens.create({
-    bank_account: {
-    country: 'US',
-    currency: 'usd',
-    account_holder_name: account_holder_name,
-    account_holder_type: 'individual',
-    routing_number: routing_number,
-    account_number: account_number
-  }
-}, function(err, token) {
-
-  if(err != null) {
-
-    console.log(err)
-
-  }
-  res.send(token)
-
-});
-
-});
 
 app.post('/delete_card', (req, res) => {
 
