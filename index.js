@@ -467,7 +467,15 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
     Checkr.candidate.create(payload, function (status, response) {
       const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
-      console.log(text)
+      if (status == 200) {
+
+          res.send(response);
+
+      } else {
+
+          console.log(text)
+
+      }
     });
 
 
