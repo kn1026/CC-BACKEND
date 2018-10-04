@@ -371,6 +371,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
     driver_license_number = req.body.driver_license_number
 
 
+    console.log(API_KEY, first_name, no_middle_name, last_name, email, phone, zipcode, ssn, driver_license_number)
+
+
     request.post({
 
       url: 'https://api.checkr.com/v1/candidates',
@@ -384,6 +387,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
       } else {
 
+          console.log("Error")
           console.log(error)
 
       }
