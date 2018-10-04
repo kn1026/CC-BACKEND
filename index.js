@@ -448,33 +448,23 @@ function callback(error, response, body) {
 }
 
 app.post('/checkRCreateCandidate', (req, res) => {
-
+  const key = req.body.YOUR_TEST_API_KEY
+  Checkr.setPublishableKey(key);
   var payload = {
-      first_name: req.body.first_name,
-      middle_name: req.body.middle_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      phone: req.body.phone,
-      zipcode: req.body.zipcode,
-      ssn: req.body.ssn,
+      first_name: req.body.first_name.val(),
+      middle_name: req.body.middle_name.val(),
+      last_name: req.body.last_name.val(),
+      email: req.body.email.val(),
+      phone: req.body.phone.val(),
+      zipcode: req.body.zipcode,.val(),
+      ssn: req.body.ssn.val(),
       driver_license_number: req.body.driver_license_number
     };
 
-    var options = {
-        url: 'https://api.checkr.com/v1/candidates',
-        timeout: 30000,
-        method: 'POST',
-        body: payload,
-        headers: {
-          'Content-Type': 'application/json',
-          'X-User-Agent': 'Checkr.2.0.0.js',
-          'Authorization': 'Basic ' + req.body.YOUR_TEST_API_KEY
-        }
-
-  };
-
-
-    request(options, callback);
+    Checkr.candidate.create(payload, function (status, response) {
+      const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
+      console.log(text)
+    });
 
 
 });
