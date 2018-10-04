@@ -1,3 +1,4 @@
+import checkr from "node-checkr"
 const express = require('express');
 
 const path = require('path');
@@ -14,7 +15,7 @@ const http = require('http');
 const https = require('https');
 const request = require('request');
 //import checkr from ;
-const Checkr = require("node-checkr")("9fff2ef9b7167479110102a099c2d4175d36f775");
+const Checkr = new checkr("9fff2ef9b7167479110102a099c2d4175d36f775");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
