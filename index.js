@@ -399,11 +399,11 @@ app.post('/checkRCreateCandidate', (req, res) => {
     auth: {
         'user': API_KEY,
         'pass': ''
-    }
+    };
 
 
-    request();
-  };
+    request(options, callback);
+};
 
 
 });
