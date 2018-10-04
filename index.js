@@ -357,6 +357,43 @@ app.post('/redirect', (req, res) => {
 
 });
 
+
+app.post('/checkRCreateCandidate', (req, res) => {
+
+    API_KEY = req.body.YOUR_TEST_API_KEY
+    first_name = req.body.first_name
+    no_middle_name = req.body.no_middle_name
+    last_name = req.body.last_name
+    email = req.body.email
+    phone = req.body.phone
+    zipcode = req.body.zipcode
+    ssn = req.body.ssn
+    driver_license_number = req.body.driver_license_number
+
+
+    request.post({
+
+      url: 'https://api.checkr.com/v1/candidates',
+      form: { YOUR_TEST_API_KEY: API_KEY, first_name: first_name, no_middle_name: no_middle_name, last_name: last_name, email: email, phone: phone, zipcode: zipcode, ssn: ssn, driver_license_number: driver_license_number }
+
+    }, function(error, response, body){
+
+      if (!error && response.statusCode == 200) {
+
+          res.send(body);
+
+      } else {
+
+          console.log(error)
+
+      }
+
+
+  });
+
+
+});
+
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
         res.send(body);
