@@ -14,7 +14,7 @@ const http = require('http');
 const https = require('https');
 const request = require('request');
 //import checkr from ;
-const Checkr = new checkr("9fff2ef9b7167479110102a099c2d4175d36f775");
+const Checkr = require("Checkr")("9fff2ef9b7167479110102a099c2d4175d36f775");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
