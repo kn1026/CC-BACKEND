@@ -456,7 +456,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
       last_name: req.body.last_name.val(),
       email: req.body.email.val(),
       phone: req.body.phone.val(),
-      zipcode: req.body.zipcode,.val(),
+      zipcode: req.body.zipcode.val(),
       ssn: req.body.ssn.val(),
       driver_license_number: req.body.driver_license_number
     };
