@@ -390,9 +390,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
         method: 'POST',
         body: payload,
         headers: {
-          'Content-Type', 'application/json',
-          'X-User-Agent', 'Checkr.2.0.0.js',
-          'Authorization', 'Basic ' + btoa(req.body.YOUR_TEST_API_KEY)
+          'Content-Type': 'application/json',
+          'X-User-Agent': 'Checkr.2.0.0.js',
+          'Authorization': 'Basic ' + btoa(req.body.YOUR_TEST_API_KEY)
         }
 
   };
