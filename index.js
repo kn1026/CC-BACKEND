@@ -210,27 +210,6 @@ app.post('/refund', (req, res) => {
 
 });
 
-app.post('/External_Account', (req, res) => {
-
-    var email = req.body.email
-
-    stripe.accounts.create({
-      type: 'custom',
-      country: 'US',
-      email: email,
-      business_name: "Campus Connect Driver",
-      business_url: "http://campusconnectonline.com/"
-    }, function(err, account) {
-      if(err != null) {
-
-        console.log(err)
-
-      }
-        res.send(account)
-  });
-
-});
-
 
 app.post('/retrieve_connect', (req, res) => {
 
@@ -373,11 +352,6 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
 
 });
-
-
-
-
-
 
 
 
@@ -526,10 +500,6 @@ app.post('/sms', (req, res) => {
 http.createServer(app).listen(1337, () => {
   console.log('Express server listening on port 1337');
 });
-
-
-
-
 
 
 
