@@ -385,7 +385,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
     };
 
     var options = {
-    url: 'https://api.checkr.com/v1/candidates',
+    url: 'https://api.checkr.com/js/candidates',
     method: 'POST',
     body: payload,
     auth: {
