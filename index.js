@@ -399,7 +399,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
     auth: {
         'user': API_KEY,
         'pass': ''
-    };
+    }
+
+  };
 
 
     request(options, callback);
