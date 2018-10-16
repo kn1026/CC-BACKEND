@@ -478,8 +478,8 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
       } else {
 
-          console.log(text)
-          res.send(response)
+          console.log(response)
+          //res.send(text)
 
       }
     });
