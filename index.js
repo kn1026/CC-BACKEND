@@ -474,7 +474,8 @@ app.post('/checkRCreateCandidate', (req, res) => {
     Checkr.candidate.create(payload, function (status, response) {
       text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
       console.log(text + " repeat " + (count += 1))
-      if status != 0 {
+
+      if (status != 0) {
         res.send(response)
         res.end()
       }
