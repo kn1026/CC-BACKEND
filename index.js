@@ -472,8 +472,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
     };
 
     Checkr.candidate.create(payload, function (status, response) {
-      //text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
-      console.log(status + " repeat " + (count += 1))
+      text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
+      console.log(text + " repeat " + (count += 1))
+
     });
 
 
