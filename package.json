@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "A sample Node.js app using Express 4",
   "engines": {
-    "node": "10.11.0"
+    "node": "8.9.1"
   },
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "yarn-install": "^1.0.0"
   },
   "devDependencies": {
-    "request": "^2.88.0",
+    "request": "^2.81.0",
     "tape": "^4.7.0"
   },
   "repository": {
