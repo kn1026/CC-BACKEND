@@ -457,6 +457,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
   const key = req.body.YOUR_TEST_API_KEY
   var count = 0
   var ct = 0
+  var send = 0
   console.log("Request recieve: " + (ct+=1))
   Checkr.setPublishableKey(key);
 
@@ -475,7 +476,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
     Checkr.candidate.create(payload, function (status, response) {
       text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
       console.log(status + " repeat: " + (count += 1))
-
+      if (status != 0 && send == 0) {
+        res.send(response)
+      }
 
 
     });
