@@ -479,6 +479,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
       } else {
 
           console.log(text)
+          res.send(text)
 
       }
     });
@@ -514,7 +515,7 @@ app.post('/screenRCreateCandidate', (req, res) => {
 
       } else {
 
-          console.log(text)
+          res.send(text)
 
       }
     });
