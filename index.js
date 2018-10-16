@@ -478,7 +478,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
       if (status == 201 || status == 200) {
 
           //res.send(response);
-
+          console.log(text);
       } else {
 
           console.log(text);
