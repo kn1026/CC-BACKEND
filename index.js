@@ -477,13 +477,13 @@ app.post('/checkRCreateCandidate', (req, res) => {
       if (status == 201 || status == 200) {
 
           console.log(text)
-          console.log("count: " count)
+          console.log("count: " + count)
           coun += 1
 
       } else {
 
           console.log(text)
-          console.log("count: " count)
+          console.log("count: " + count)
           coun += 1
 
 
