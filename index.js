@@ -6,8 +6,8 @@ const stripe = require("stripe")("sk_live_MOC1tbrlvBZENX8WMEXiLhla");
 var app = express();
 const PORT = process.env.PORT || 5000;
 const install = require('yarn-install')
-const accountSid = 'AC890d1e64b6af132a97b58edcd84acaee';
-const authToken = 'c9aa2f947339f8f124e19643a955a256';
+const accountSid = 'ACf08189c86158469eb5e6e438b1798005';
+const authToken = '414e47c782c629786358e791f67e1463';
 const client = require('twilio')(accountSid, authToken);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require('http');
@@ -16,6 +16,7 @@ const request = require('request');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var Checkr = new XMLHttpRequest();
 const btoa = function(str){ return Buffer.from(str).toString('base64'); }
+const checkr_secret_key = "77a2877369d9ebaf2753ad7c93ec585926ad8426";
 
 Checkr = {
   rootUrl: 'https://api.checkr.com',
@@ -451,8 +452,11 @@ function callback(error, response, body) {
 }
 
 app.post('/checkRCreateCandidate', (req, res) => {
+
   const key = req.body.YOUR_TEST_API_KEY
+
   Checkr.setPublishableKey(key);
+
   var payload = {
       first_name: req.body.first_name,
       middle_name: req.body.middle_name,
@@ -465,7 +469,9 @@ app.post('/checkRCreateCandidate', (req, res) => {
     };
 
     Checkr.candidate.create(payload, function (status, response) {
+
       const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
+
       if (status == 200) {
 
           res.send(response);
@@ -480,6 +486,41 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
 });
 
+
+app.post('/screenRCreateCandidate', (req, res) => {
+
+  const key = req.body.YOUR_TEST_API_KEY
+
+  Checkr.setPublishableKey(key);
+
+  var payload = {
+      first_name: req.body.first_name,
+      middle_name: req.body.middle_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      phone: req.body.phone,
+      zipcode: req.body.zipcode,
+      ssn: req.body.ssn,
+      driver_license_number: req.body.driver_license_number
+    };
+
+    Checkr.candidate.create(payload, function (status, response) {
+
+      const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
+
+      if (status == 200) {
+
+          res.send(response);
+
+      } else {
+
+          console.log(text)
+
+      }
+    });
+
+
+});
 
 
 
