@@ -469,8 +469,6 @@ app.post('/checkRCreateCandidate', (req, res) => {
       driver_license_state: "NH"
     };
 
-    console.log(payload)
-
     Checkr.candidate.create(payload, function (status, response) {
 
       const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
@@ -481,7 +479,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
           console.log(text);
       } else {
 
-          console.log(text);
+          res.send(text);
 
 
       }
