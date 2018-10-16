@@ -478,6 +478,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
       console.log(status + " repeat: " + (count += 1))
       if (status != 0 && send == 0) {
         res.send(response)
+        send += 1
       }
 
 
