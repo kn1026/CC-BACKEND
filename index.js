@@ -454,6 +454,7 @@ function callback(error, response, body) {
 app.post('/checkRCreateCandidate', (req, res) => {
 
   const key = req.body.YOUR_TEST_API_KEY
+  var count = 0
 
   Checkr.setPublishableKey(key);
 
@@ -476,10 +477,14 @@ app.post('/checkRCreateCandidate', (req, res) => {
       if (status == 201 || status == 200) {
 
           console.log(text)
+          console.log("count: " count)
+          coun += 1
 
       } else {
 
           console.log(text)
+          console.log("count: " count)
+          coun += 1
 
 
       }
