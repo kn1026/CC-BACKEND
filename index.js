@@ -488,41 +488,6 @@ app.post('/checkRCreateCandidate', (req, res) => {
 });
 
 
-app.post('/screenRCreateCandidate', (req, res) => {
-
-  const key = req.body.YOUR_TEST_API_KEY
-
-  Checkr.setPublishableKey(key);
-
-  var payload = {
-      first_name: req.body.first_name,
-      middle_name: req.body.middle_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      phone: req.body.phone,
-      zipcode: req.body.zipcode,
-      ssn: req.body.ssn,
-      driver_license_number: req.body.driver_license_number
-    };
-
-    Checkr.candidate.create(payload, function (status, response) {
-
-      const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
-
-      if (status == 200) {
-
-          res.send(response);
-
-      } else {
-
-        console.log(response)
-        res.send(response)
-
-      }
-    });
-
-
-});
 
 
 
