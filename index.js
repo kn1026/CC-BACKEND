@@ -459,14 +459,17 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
   var payload = {
       first_name: req.body.first_name,
-      middle_name: req.body.middle_name,
+      no_middle_name: true,
       last_name: req.body.last_name,
       email: req.body.email,
       phone: req.body.phone,
       zipcode: req.body.zipcode,
       ssn: req.body.ssn,
-      driver_license_number: req.body.driver_license_number
+      driver_license_number: req.body.driver_license_number,
+      driver_license_state: "NH"
     };
+
+    console.log(payload)
 
     Checkr.candidate.create(payload, function (status, response) {
 
@@ -478,7 +481,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
       } else {
 
-          console.log(text)
+          console.log(text);
 
 
       }
@@ -506,6 +509,7 @@ app.post('/set_default', (req, res) => {
       console.log(err)
 
     }
+
     res.send(customer)
 
   });
