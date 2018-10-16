@@ -472,14 +472,14 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
       const text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
 
-      if (status == 200) {
+      if (status == 201 || status == 200 {
 
           res.send(response);
 
       } else {
 
           console.log(text)
-    
+
 
       }
     });
