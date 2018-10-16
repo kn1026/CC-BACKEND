@@ -478,13 +478,13 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
           console.log(text)
           console.log("count: " + count)
-          coun += 1
+          count += 1
 
       } else {
 
           console.log(text)
           console.log("count: " + count)
-          coun += 1
+          count += 1
 
 
       }
