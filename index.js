@@ -18,7 +18,7 @@ var Checkr = new XMLHttpRequest();
 const btoa = function(str){ return Buffer.from(str).toString('base64'); }
 const checkr_secret_key = "77a2877369d9ebaf2753ad7c93ec585926ad8426";
 
-Checkr = {
+var Checkr = {
   rootUrl: 'https://api.checkr.com',
   timeout: 30000,
   publishableKey: null,
@@ -30,7 +30,7 @@ Checkr = {
     var xhr = new XMLHttpRequest();
     var url = Checkr.rootUrl + path;
     xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'applicsation/json');
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('X-User-Agent', 'Checkr.2.0.0.js');
     xhr.setRequestHeader('Authorization', 'Basic ' + btoa(Checkr.publishableKey));
     xhr.onreadystatechange = function () {
@@ -119,7 +119,7 @@ Checkr = {
 
     create: function (data, callback) {
       if (!Checkr.publishableKey) {
-        throw new Error('No Publishable Key set.')
+        throw new Error('No Publishable Key set. Use Checkr.setPublishableKey("YOUR_KEY_HERE").')
       }
 
       if (!data) {
@@ -144,6 +144,7 @@ Checkr = {
     }
   },
 };
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({
