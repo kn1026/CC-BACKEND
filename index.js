@@ -143,6 +143,36 @@ var Checkr = {
       }
     }
   },
+
+
+  screenings: {
+
+    ssn_trace: function (data, callback) {
+      if (!Checkr.publishableKey) {
+        throw new Error('No secret Key set.')
+      }
+
+      if (!data) {
+        var message = 'No data supplied';
+
+        if (!callback) {
+          throw message;
+        } else {
+          callback(400, {
+            error: message
+          });
+        }
+        return;
+      }
+      var errors = this.validate(data);
+
+      if (errors.length > 0) {
+        callback(400, { error: errors.join(', ') });
+      } else {
+        Checkr.post('/js/reports', data, callback);
+      }
+    }
+  },
 };
 
 
@@ -499,7 +529,7 @@ app.post('/checkRScreeningCandidate', (req, res) => {
   console.log("CheckR-Screening request recieve: " + (ct+=1))
   Checkr.setPublishableKey(checkr_secret_key);
 
-  Checkr.Screenings.ssn_trace(Candidate_ID, function (status, response) {
+  Checkr.screenings.ssn_trace(Candidate_ID, function (status, response) {
 
     text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
     console.log(response + " repeat: " + (count += 1))
