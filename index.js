@@ -164,7 +164,7 @@ var Checkr = {
         }
         return;
       };
-
+      console.log(data)
       if (errors.length > 0) {
         console.log("Err here 500")
         callback(400, { error: errors.join(', ') });
@@ -173,6 +173,8 @@ var Checkr = {
       }
     }
   },
+
+
 };
 
 
