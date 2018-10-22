@@ -164,15 +164,9 @@ var Checkr = {
         }
         return;
       };
+      console.log(data)
+      Checkr.post('/v1/reports', data, callback);
 
-      console.log(data, errors.length)
-      if (errors.length > 0) {
-        console.log("Err here 500")
-        callback(400, { error: errors.join(', ') });
-      } else {
-        console.log("checkr-reports")
-        Checkr.post('/v1/reports', data, callback);
-      }
     }
   },
 
