@@ -163,8 +163,7 @@ var Checkr = {
           });
         }
         return;
-      }
-      var errors = this.validate(data);
+      };
 
       if (errors.length > 0) {
         callback(400, { error: errors.join(', ') });
