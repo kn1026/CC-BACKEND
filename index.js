@@ -536,9 +536,9 @@ app.post('/checkRScreeningCandidate', (req, res) => {
   Checkr.screenings.ssn_trace(payload, function (status, response) {
 
     text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
-    console.log(response + " repeat: " + (count += 1))
+    console.log(text + " repeat: " + (count += 1))
     if (status != 0 && send == 0) {
-      res.send(text)
+      res.send(response)
       send += 1
     }
 
