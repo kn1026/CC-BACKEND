@@ -169,6 +169,7 @@ var Checkr = {
         console.log("Err here 500")
         callback(400, { error: errors.join(', ') });
       } else {
+        console.log("checkr-reports")
         Checkr.post('/v1/reports', data, callback);
       }
     }
