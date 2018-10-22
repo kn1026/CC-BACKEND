@@ -538,7 +538,7 @@ app.post('/checkRScreeningCandidate', (req, res) => {
 
     text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
     console.log(text + " repeat: " + (count += 1))
-    if (status != 0 && send == 0) {
+    if (status != 0 && count == 4 && send != 0) {
       res.send(response)
       send += 1
     }
