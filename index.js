@@ -525,7 +525,7 @@ app.post('/checkRScreeningCandidate', (req, res) => {
   const Candidate_ID = req.body.id
 
   var payload = {
-      package: "driver_pro",
+      package: "tasker_standard",
       candidate_id: Candidate_ID
 
   };
