@@ -502,7 +502,7 @@ app.post('/checkRScreeningCandidate', (req, res) => {
   Checkr.Screenings(Candidate_ID, function (status, response) {
 
     text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
-    console.log(status + " repeat: " + (count += 1))
+    console.log(response + " repeat: " + (count += 1))
     if (status != 0 && send == 0) {
       res.send(response)
       send += 1
