@@ -458,7 +458,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
   var count = 0
   var ct = 0
   var send = 0
-  console.log("Request recieve: " + (ct+=1))
+  console.log("CheckR-Profile-Request recieve: " + (ct+=1))
   Checkr.setPublishableKey(key);
 
   var payload = {
@@ -483,6 +483,33 @@ app.post('/checkRCreateCandidate', (req, res) => {
 
 
     });
+
+
+});
+
+
+app.post('/checkRScreeningCandidate', (req, res) => {
+
+  var count = 0
+  var ct = 0
+  var send = 0
+
+  const Candidate_ID = req.body.id
+
+  console.log("CheckR-Screening request recieve: " + (ct+=1))
+  Checkr.setPublishableKey(checkr_secret_key);
+
+  Checkr.Screenings(Candidate_ID, function (status, response) {
+
+    text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
+    console.log(status + " repeat: " + (count += 1))
+    if (status != 0 && send == 0) {
+      res.send(response)
+      send += 1
+    }
+
+  }
+
 
 
 });
