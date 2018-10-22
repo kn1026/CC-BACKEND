@@ -497,6 +497,7 @@ app.post('/checkRCreateCandidate', (req, res) => {
       phone: req.body.phone,
       zipcode: req.body.zipcode,
       ssn: req.body.ssn,
+      dob: '1970-01-22',
       driver_license_number: req.body.driver_license_number,
       driver_license_state: "NH"
     };
