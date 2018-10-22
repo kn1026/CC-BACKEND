@@ -499,7 +499,7 @@ app.post('/checkRScreeningCandidate', (req, res) => {
   console.log("CheckR-Screening request recieve: " + (ct+=1))
   Checkr.setPublishableKey(checkr_secret_key);
 
-  Checkr.Screenings(Candidate_ID, function (status, response) {
+  Checkr.screenings.ssn_trace(Candidate_ID, function (status, response) {
 
     text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
     console.log(response + " repeat: " + (count += 1))
