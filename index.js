@@ -164,7 +164,8 @@ var Checkr = {
         }
         return;
       };
-      console.log(data)
+
+      console.log(data, errors.length)
       if (errors.length > 0) {
         console.log("Err here 500")
         callback(400, { error: errors.join(', ') });
