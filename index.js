@@ -528,10 +528,16 @@ app.post('/checkRScreeningCandidate', (req, res) => {
 
   const Candidate_ID = req.body.id
 
+  var payload = {
+      package: "driver_pro",
+      candidate_id: Candidate_ID
+
+  };
+
   console.log("CheckR-Screening request recieve: " + (ct+=1))
   Checkr.setPublishableKey(checkr_secret_key);
 
-  Checkr.screenings.ssn_trace(Candidate_ID, function (status, response) {
+  Checkr.screenings.ssn_trace(payload, function (status, response) {
 
     text = 'status:\n' + status + '\n\nresponse:\n' + JSON.stringify(response, false, 4)
     console.log(response + " repeat: " + (count += 1))
