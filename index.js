@@ -508,7 +508,7 @@ app.post('/checkRScreeningCandidate', (req, res) => {
       send += 1
     }
 
-  }
+  });
 
 
 
