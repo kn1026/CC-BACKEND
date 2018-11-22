@@ -592,7 +592,7 @@ app.post('/pre_authorization', (req, res) => {
       amount: amount,
       currency: "usd",
       description: description,
-      capture: false,
+      capture: captured,
       receipt_email: receipt_email,
 
 
@@ -616,6 +616,7 @@ app.post('/pre_authorization_apple_pay', (req, res) => {
     var receipt_email = req.body.receipt_email
     var amount = req.body.amount
     var description = req.body.description
+    var captured = req.body.captured
 
 
     stripe.charges.create({
@@ -625,7 +626,7 @@ app.post('/pre_authorization_apple_pay', (req, res) => {
       amount: amount,
       currency: "usd",
       description: description,
-      capture: false,
+      capture: captured,
       receipt_email: receipt_email,
 
 
